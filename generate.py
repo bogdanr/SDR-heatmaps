@@ -43,11 +43,11 @@ for hirezname in os.listdir(hirezdir):
         dziname = htmldir + filename + '.dzi'
         if os.path.isfile(dziname):
             print "skipping " + dziname
-            create_index_html()
             continue
         else:
             print "generating " + dziname
             creator.create(hirezdir + hirezname, dziname)
+            create_index_html()
             continue
         continue
     else:
