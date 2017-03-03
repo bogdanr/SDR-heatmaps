@@ -1,76 +1,56 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Huge Heatmap</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
-    <style type="text/css">
-        body {
-            margin: 0px;
-            font-family: Verdana;
-            line-height: 1.25em;
-            background-color: black;
-        }
-        html, body, #content {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        a {
-            text-decoration: none;
-        }
-        div.overlay {
-            color: #808080;
-            font-size: small;
-            margin: 1ex;
-        }
-        div.overlay a {
-            color: #808080;
-            text-decoration: underline;
-        }
-    </style>
-  </head>
-  <body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-<div id="content">
-  <div id="heatmapviewer" style="width: auto; height: 600px; border: 1px solid black; background: black; color: white; margin: 0px; padding: 0px;"></div>
-  <div id="help" class="overlay">
-Drag or arrow keys to move.<br>
-Click/Mousewheel or +/&#x2212; keys to zoom.
-  </div>
-</div>
-<script src="openseadragon.min.js"></script>
-<script type="text/javascript">
-    var viewer = OpenSeadragon({
-        id: "heatmapviewer",
-	visibilityRatio: 1.0,
-	showNavigator:  true,
-	navigatorPosition: "BOTTOM_RIGHT",
-	navigatorAutoResize: false,
-	navigatorRotate: false,
-	navigatorHeight: "100px",
-	navigatorWidth: "400px",
-	constrainDuringPan: true,
-	defaultZoomLevel: 3,
-	minZoomLevel: 2,
-	debugMode: false,
-        customControls: [
-            { id: "help", anchor: OpenSeadragon.ControlAnchor.TOP_LEFT }
-        ],
-        prefixUrl: "images/",
-        tileSources: "tiles/20.dzi"
-    });
+    <title>SDR Heatmaps</title>
+    <meta name="description" content="A collection of high resolution radio heatmaps" />
 
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-OpenSeadragon.supportsFullScreen = false;
-viewer.setFullPage(true);
-OpenSeadragon.supportsFullScreen = true;
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
 
-</script>
+</head>
+<body class="home-template">
+    <header class="main-header no-cover">
+    <nav class="main-nav overlay clearfix">
+            
+        <a class="subscribe-button icon-feed" href="/feed.xml">Subscribe</a>
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">SDR Heatmaps</h1>
+            <h2 class="page-description">
+                 See the radio <a href='https://github.com/bogdanr/SDR-heatmaps'> About this</a>
+            </h2>
+        </div>
+    </div>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+    </header>
 
-  </body>
+    <article class="post">
+        <header class="post-header"><h2 class="post-title"><a href="tiles/100-NegruMare-a.html">100MHz - 200MHz - Bucharest</a></h2></header>
+        <section class="post-excerpt">
+            <p>This heatmap was generated in January 2017 from Bucharest, Romania. It was captured with a 120cm wire antenna, connected to a RTL SDR.</p>
+        </section>
+        <footer class="post-meta">Bogdan Rădulescu<time class="post-date" datetime="2017-01-05">05 Feb 2017</time></footer>
+    </article>
+
+    <footer class="site-footer clearfix">
+      <section class="copyright">
+        <a href="heatmaps.nimblex.net">SDR Heatmaps</a> &copy; 
+              2017 &bull; All rights reserved.
+      </section>
+    </footer>
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+</body>
 </html>
-
