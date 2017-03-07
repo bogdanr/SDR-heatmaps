@@ -3,6 +3,7 @@
 
 import os
 import sys
+import json
 
 try:
     import deepzoom
@@ -29,13 +30,21 @@ creator = deepzoom.ImageCreator(tile_size=128, tile_overlap=2, tile_format="png"
 def render_template(template_filename, context):
     return TEMPLATE_ENVIRONMENT.get_template(template_filename).render(context)
 
-def create_index_html():
+def create_heatmap_html():
     context = {
         'dziname': filename + ".dzi"
     }
     with open(htmldir + filename + ".html", 'w') as f:
         html = render_template('heatmap.jinja', context)
         f.write(html)
+
+def create_index_html():
+    with open('maps.json') as json_file, open('index.html', 'w') as f:
+        maps = json.load(json_file)
+        index_template=TEMPLATE_ENVIRONMENT.get_template('index.jinja')
+        index_html=index_template.render(maps = maps).encode('utf-8')
+        f.write(index_html)
+
 
 for hirezname in os.listdir(hirezdir):
     if hirezname.endswith(".png") or hirezname.endswith(".jpg"): 
@@ -47,11 +56,11 @@ for hirezname in os.listdir(hirezdir):
         else:
             print "generating " + dziname
             creator.create(hirezdir + hirezname, dziname)
-            create_index_html()
+            create_heatmap_html()
             continue
         continue
     else:
         continue
 
 
-
+create_index_html()

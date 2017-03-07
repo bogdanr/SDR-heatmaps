@@ -840,6 +840,34 @@ body:not(.post-template) .post-title {
     line-height: 1.5em;
 }
 
+a.tooltip {
+    border-bottom: dotted 1px blue;
+}
+
+a.tooltip > span {
+    opacity: 0;
+    visibility: hidden; position: absolute;
+    -webkit-transition-property: opacity, visibility;
+    -webkit-transition-duration: 0.4s, 0.4s;
+    -webkit-transition-timing-function: ease-in-out, ease-in-out;
+    -moz-transition-property: opacity, visibility;
+    -moz-transition-duration: 0.4s, 0.4s;
+    -moz-transition-timing-function: ease-in-out, ease-in-out;
+    -o-transition-property: opacity, visibility;
+    -o-transition-duration: 0.4s, 0.4s;
+    -o-transition-timing-function: ease-in-out, ease-in-out;
+    transition-property: opacity, visibility;
+    transition-duration: 0.4s, 0.4s;
+    transition-timing-function: ease-in-out, ease-in-out;
+}
+
+a.tooltip:hover > span {
+    opacity: 1;
+    text-decoration: none;
+    visibility: visible;
+    overflow: visible;
+    display: inline;
+}
 
 /* ==========================================================================
    5. Single Post - When you click on an individual post
@@ -1001,45 +1029,6 @@ body:not(.post-template) .post-title {
     color: #50585D;
 }
 
-/* CSS tooltip saying "Subscribe!" - initially hidden */
-.tooltip {
-    opacity: 0;
-    display: block;
-    width: 53px;
-    padding: 4px 8px 5px 8px;
-    position:absolute;
-    top: -23px;
-    left: -21px;
-    color: rgba(255,255,255,0.9);
-    font-size: 1.1rem;
-    line-height: 1em;
-    text-align: center;
-    background: #50585D;
-    border-radius: 20px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    transition: opacity 0.3s ease, top 0.3s ease;
-}
-
-/* The little chiclet arrow under the tooltip, pointing down */
-.tooltip:after {
-    content: " ";
-    border-width: 5px 5px 0 5px;
-    border-style: solid;
-    border-color: #50585D transparent;
-    display: block;
-    position: absolute;
-    bottom: -4px;
-    left: 50%;
-    margin-left: -5px;
-    z-index: 220;
-    width: 0;
-}
-
-/* On hover, show the tooltip! */
-.subscribe:hover .tooltip {
-    opacity: 1;
-    top: -33px;
-}
 
 /* ==========================================================================
    6. Author profile

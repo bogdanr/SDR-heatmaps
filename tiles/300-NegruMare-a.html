@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Huge Heatmap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        body {
+            margin: 0px;
+            font-family: Verdana;
+            line-height: 1.25em;
+            background-color: black;
+        }
+        html, body, #content {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        div.overlay {
+            color: #808080;
+            font-size: small;
+            margin: 1ex;
+        }
+        div.overlay a {
+            color: #808080;
+            text-decoration: underline;
+        }
+    </style>
+  </head>
+  <body>
+
+<div id="content">
+  <div id="heatmapviewer" style="width: auto; height: 600px; border: 1px solid black; background: black; color: white; margin: 0px; padding: 0px;"></div>
+  <div id="help" class="overlay">
+Drag or arrow keys to move.<br>
+Click/Mousewheel or +/&#x2212; keys to zoom.
+  </div>
+</div>
+<script src="openseadragon.min.js"></script>
+<script type="text/javascript">
+    var viewer = OpenSeadragon({
+        id: "heatmapviewer",
+	visibilityRatio: 1.0,
+	showNavigator:  true,
+	navigatorPosition: "ABSOLUTE",
+	navigatorAutoResize: false,
+	navigatorRotate: false,
+	navigatorHeight: "200px",
+	navigatorWidth: "630px",
+	constrainDuringPan: true,
+	defaultZoomLevel: 3,
+	minZoomLevel: 1,
+	debugMode: false,
+        customControls: [
+            { id: "help", anchor: OpenSeadragon.ControlAnchor.TOP_LEFT }
+        ],
+        prefixUrl: "../assets/images/",
+	tileSources: "300-NegruMare-a.dzi"
+    });
+
+viewer.navigator.element.parentNode.style.right = '0';
+viewer.navigator.element.parentNode.style.bottom = '0';
+
+OpenSeadragon.supportsFullScreen = false;
+viewer.setFullPage(true);
+OpenSeadragon.supportsFullScreen = true;
+
+</script>
+
+  </body>
+</html>
