@@ -64,6 +64,15 @@ Click/Mousewheel or +/&#x2212; keys to zoom.
 	tileSources: "{{ dziname }}"
     });
 
+viewer.addHandler('open', function() {
+  var viewBounds = viewer.viewport.getBounds();
+  var viewAspect = viewBounds.height / viewBounds.width;
+  var imageBounds = viewer.world.getItemAt(0).getBounds(); // Assuming just a single image
+  var newViewWidth = imageBounds.width * 0.5;
+  var newBounds = new OpenSeadragon.Rect((imageBounds.width - newViewWidth) * 0.5, 0, newViewWidth, newViewWidth * viewAspect);
+  viewer.viewport.fitBounds(newBounds, true);
+});
+
 viewer.navigator.element.parentNode.style.right = '0';
 viewer.navigator.element.parentNode.style.bottom = '0';
 
