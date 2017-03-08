@@ -660,22 +660,24 @@ margin on the iframe, cause it breaks stuff. */
 
 /* The details of your blog. Defined in ghost/settings/ */
 .page-title {
-    margin: 10px 0 10px 0;
-    font-size: 5rem;
     letter-spacing: -1px;
-    font-weight: 700;
-    font-family: "Open Sans", sans-serif;
     color: #fff;
+    text-shadow: 2px -1px #333333;
 }
 
 .page-description {
     margin: 0;
-    font-size: 2rem;
+    font-size: 3rem;
     line-height: 1.5em;
     font-weight: 400;
     font-family: "Merriweather", serif;
     letter-spacing: 0.01rem;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.9);
+    text-shadow: 1px -1px #333333;
+}
+
+.page-description a {
+    color: rgb(255,255,255);
 }
 
 .no-cover.main-header {
@@ -842,6 +844,8 @@ body:not(.post-template) .post-title {
 
 a.tooltip {
     border-bottom: dotted 1px blue;
+    z-index: 1;
+    position: relative;
 }
 
 a.tooltip > span {
@@ -1344,7 +1348,6 @@ a.tooltip:hover > span {
 
     .page-title {
         font-size: 4rem;
-        letter-spacing: -1px;
     }
 
     .page-description {
